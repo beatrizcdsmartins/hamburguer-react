@@ -6,6 +6,7 @@ import {User, ContainerItens, H1, Container, Button, Image} from './styles.js'
 
 import { useHistory } from "react-router-dom";
 
+
 const Orders = () => {
 
 
@@ -22,7 +23,7 @@ const Orders = () => {
   useEffect(()=>{
 
     async function createForWeCanUseAsncy (){
-      const {data: demaisPedidos} = await axios.get("http://localhost:3002/users")// recuperando todos os usuários
+      const {data: demaisPedidos} = await axios.get(`https://backend-react.vercel.app/Orders`)// recuperando todos os usuários
 
     setUsers(demaisPedidos)
 
@@ -34,7 +35,7 @@ const Orders = () => {
 
   async function deleteUser(userId){
     const newUsers = users.filter(user => user.id !== userId)
-   await axios.delete(`http://localhost:3002/users/${userId}`) // deletando no backend
+   await axios.delete(`https://backend-react.vercel.app/Orders/${userId}`) // deletando no backend
 // Vai deixar no array só os users que tem o id diferente do que foi chamado para ser deletado
     setUsers(newUsers)
     

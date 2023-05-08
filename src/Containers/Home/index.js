@@ -13,13 +13,14 @@ const App = () => {
   const history = useHistory()
 
 
+
   async function newOrder(){
 
 
 
     if (inputOrder.current.value !==""){
       
-      const {data: newUser} = await axios.post("http://localhost:3002/users", {order:inputOrder.current.value, name:inputName.current.value})
+      const {data: newUser} = await axios.post("https://backend-react.vercel.app/Orders", {order:inputOrder.current.value, name:inputName.current.value})
       setUsers([...users, newUser ])
     } 
  
